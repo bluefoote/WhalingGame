@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CrewMember" load_steps=2 format=3 uid="uid://cm7oq0yqx5rqx"]
+
+[ext_resource type="Script" uid="uid://c1hyga3c2ev5w" path="res://Scripts/Resources/CrewMember.gd" id="1_j6jen"]
+
+[resource]
+script = ExtResource("1_j6jen")
+needs = 1
+metadata/_custom_type_script = "uid://c1hyga3c2ev5w"
