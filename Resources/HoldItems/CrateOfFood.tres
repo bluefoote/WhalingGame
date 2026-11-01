@@ -1,11 +1,19 @@
-[gd_resource type="Resource" script_class="HoldItem" load_steps=3 format=3 uid="uid://dh2vjgtgd5sxi"]
+[gd_resource type="Resource" script_class="HoldItem" load_steps=5 format=3 uid="uid://dh2vjgtgd5sxi"]
 
-[ext_resource type="Script" uid="uid://bfonqfyf27lii" path="res://HoldItemProperty.gd" id="1_oxn71"]
-[ext_resource type="Script" uid="uid://c7wllhvha3mh" path="res://HoldItem.gd" id="2_7hws1"]
+[ext_resource type="Script" uid="uid://bfonqfyf27lii" path="res://Scripts/Resources/HoldItemProperty.gd" id="1_7hws1"]
+[ext_resource type="Script" uid="uid://bnothqmdoxveu" path="res://Scripts/Resources/HoldItemProperties/FoodItemProperty.gd" id="2_2dvpa"]
+[ext_resource type="Script" uid="uid://c7wllhvha3mh" path="res://Scripts/Resources/HoldItem.gd" id="3_jloqo"]
+
+[sub_resource type="Resource" id="Resource_2ykw2"]
+resource_local_to_scene = true
+script = ExtResource("2_2dvpa")
+food_amount = 10
+hold_item_property_name = "Food"
+metadata/_custom_type_script = "uid://bnothqmdoxveu"
 
 [resource]
-script = ExtResource("2_7hws1")
+script = ExtResource("3_jloqo")
 item_name = "Crate of Food"
 item_size = Vector2i(1, 1)
-item_properties = Array[ExtResource("1_oxn71")]([null])
+item_properties = Array[ExtResource("1_7hws1")]([SubResource("Resource_2ykw2")])
 metadata/_custom_type_script = "uid://c7wllhvha3mh"

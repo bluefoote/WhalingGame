@@ -32,6 +32,9 @@ func _ready() -> void:
 		var generic_crew_member = load("res://Resources/CrewMembers/GenericCrewman.tres").duplicate()
 		generic_crew_member.crew_member_name = "Murray"
 		ship_component_instance.add_crew_member(generic_crew_member)
+		ship_component_instance.add_item(load("res://Resources/HoldItems/CrateOfFood.tres").duplicate(true))
+		ship_component_instance.add_item(load("res://Resources/HoldItems/CrateOfFood.tres").duplicate(true))
+		ship_component_instance.calculate_food_stores()
 		actor_manager.set_pc(actor_instance)
 		turn_manager._on_Actor_Spawn(actor_instance, 0)
 		
@@ -68,9 +71,10 @@ func set_crew_member_test_info(ship_component : ShipComponent):
 	crew_member_info_test.text = text
 	
 func set_ship_stores_test_ui(ship_component : ShipComponent):
-	ship_stores_test_ui.text = "Ship stores: " + str(ship_component.food_stores)
+	ship_stores_test_ui.text = "Ship stores: " + str(ship_component.current_food_stores)
 
 func set_day_counter_test():
+	print("new day")
 	$UI/TestUI/DayCounter.text = "Day: " + str(day)
 	day += 1
 
