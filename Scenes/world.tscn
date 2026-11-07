@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dhuxpd2klqagv"]
+[gd_scene load_steps=10 format=4 uid="uid://dhuxpd2klqagv"]
 
 [ext_resource type="Script" uid="uid://v2tt53ywshad" path="res://Scripts/SceneScripts/world.gd" id="1_a02cp"]
 [ext_resource type="Script" uid="uid://3a3nqffd1tti" path="res://Scripts/SceneScripts/actor_manager.gd" id="2_5a7ea"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dm4po4ggfxbp7" path="res://Scripts/SceneScripts/map_manager.gd" id="3_8j60k"]
 [ext_resource type="Script" uid="uid://c4nfyntah6j0w" path="res://Scripts/SceneScripts/turn_manager.gd" id="4_5ukr8"]
 [ext_resource type="Texture2D" uid="uid://66vlhgblslhi" path="res://icon.svg" id="4_fo5ed"]
+[ext_resource type="Script" uid="uid://bcl6cxd6ylhkj" path="res://Scripts/hold_ui.gd" id="7_o06y3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ukr8"]
 texture = ExtResource("4_fo5ed")
@@ -131,3 +132,12 @@ offset_top = 92.0
 offset_right = 143.0
 offset_bottom = 115.0
 text = "Day: "
+
+[node name="HoldUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 30.0
+offset_top = 463.0
+offset_right = 190.0
+offset_bottom = 623.0
+script = ExtResource("7_o06y3")

@@ -15,6 +15,11 @@ var items : Array = [] ### List of items to allow for iteration over them
 
 signal ship_stats_changed
 
+func _ready():
+	for y in range(max_storage_y):
+		for x in range(max_storage_x):
+			hold[Vector2i(x, y)] = null
+
 func _on_new_day():
 	calculate_food_stores()
 	var amount_of_food_eaten = 0
@@ -62,7 +67,23 @@ func decrement_food(amount : int):
 
 func add_item(new_hold_item : HoldItem):
 	items.append(new_hold_item)
+	if hold_has_empty_space(): ### Eventually this should be smarter, pass the new_hold_item size and check if it can fit but for now, all items are 1x1
+		hold[get_first_empty_space_in_hold()] = new_hold_item
 	### TODO: Add the item to the hold. Create the visual representation 
+	
+func hold_has_empty_space() -> bool:
+	for y in range(max_storage_y):
+		for x in range(max_storage_x):
+			if hold[Vector2i(x, y)] == null:
+				return true
+	return false
+	
+func get_first_empty_space_in_hold():
+	for y in range(max_storage_y):
+		for x in range(max_storage_x):
+			if hold[Vector2i(x, y)] == null:
+				return Vector2i(x, y)
+	return Vector2i(-1, -1)
 	
 func remove_item(item : HoldItem):
 	items.erase(item)
